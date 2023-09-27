@@ -3,19 +3,53 @@
 # Función para mostrar mensajes de carga
 
 # Función para mostrar el menú principal
+
+function mostrar_carga {
+  clear
+  sleep 3
+  echo -e "Connecting to \e[35mUnited States...\e[37m"
+  sleep 5
+  clear
+  echo -e "Connected to \e[35mUnited States\e[37m [\e[36m276.34ms\e[37m]"
+  sleep 5
+  clear
+  echo -e "Connecting to \e[35mCanada...\e[37m"
+  sleep 5
+  clear
+  echo -e "Connected to \e[35mCanada\e[37m [\e[36m458.21ms\e[37m]"
+  sleep 6
+  clear
+  echo -e "Connecting to \e[35mIran...\e[37m"
+  sleep 6
+  clear
+  echo -e "Connected to \e[35mIran\e[37m [\e[36m1049.34ms\e[37m]"
+  sleep 3
+  clear
+  echo -e "\e[32mSUCCESSFULLY \e[37mCONNECTED TO [\e[31m3\e[37m] SERVERS"
+  sleep 2
+}
+
 function mostrar_menu {
   clear
-
  echo -e "\e[31m +-+-+-+-+-+ +-+-+-+-+-+-+
  \e[37m|N|E|I|N|C| |H|O|S|T|E|R|
  \e[31m+-+-+-+-+-+ +-+-+-+-+-+-+
 "
-echo -e "\e[37mConnected to: \e[32mIRAN \e[37m(\e[33m171.22.24.3\e[37m) on port: \e[35m27030"
+  echo -e "\e[37mConnected to: \e[32mIRAN \e[37m(\e[33m171.22.24.3\e[37m) on port: \e[35m27030"
   echo ""
+  echo -e "\e[37m════════════════════════════════════╗"
+  echo -e "\e[37m \e[37mName: \e[36mAhmad Salari                 \e[37m║"
+  echo -e "\e[37m \e[37mBank: \e[34mCentral Bank of Iran         \e[37m║"
+  echo -e "\e[37m \e[37mAccount Number: \e[33m000547945862308888 \e[37m║"
+  echo -e "\e[37m \e[37mCredit Card: \e[31mNo                    \e[37m║"
+  echo -e "\e[37m════════════════════════════════════╝"
+  echo ""
+  echo "┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄"
   echo -e "\e[37m[\e[35m1\e[37m] - Account Status"
   echo -e "\e[37m[\e[35m2\e[37m] - History"
   echo -e "\e[37m[\e[35m3\e[37m] - Transfer"
   echo -e "\e[37m[\e[35m4\e[37m] - Logout"
+  echo "┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄"
   echo ""
 }
 
@@ -55,7 +89,6 @@ echo ""
 # Función para mostrar el historial
 function mostrar_historial {
   clear
-  echo "Transfer history:"
   # Generar 50 transferencias aleatorias en el historial
   for ((i=1; i<=50; i++)); do
     nombre=$(shuf -n 1 nombres_aleatorios.txt)
@@ -68,7 +101,7 @@ function mostrar_historial {
     echo -e "\e[37mTransfer from:\e[34m $nombre"
     echo -e "\e[37mBank: \e[35m$banco"
     echo -e "\e[37mAccount Number: \e[31m$num_cuenta"
-    echo -e "\e[37mAmount: \e[32m$ $cantidad"
+    echo -e "\e[37mAmount: \e[32m$ $cantidad\e[37m"
     echo
   done
   read -p "Go to menu" pausa
